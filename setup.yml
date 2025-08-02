@@ -13,12 +13,3 @@
         upgrade: dist
         autoclean: yes
         autoremove: yes
-
-    - name: Install common software
-      apt:
-        name:
-          - vim
-          - git
-          - curl
-          - htop
-        state: present
