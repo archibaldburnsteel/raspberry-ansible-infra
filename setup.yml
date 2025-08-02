@@ -1,0 +1,24 @@
+---
+- name: Initial Raspberry Pi Setup
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Upgrade all installed packages
+      apt:
+        upgrade: dist
+        autoclean: yes
+        autoremove: yes
+
+    - name: Install common software
+      apt:
+        name:
+          - vim
+          - git
+          - curl
+          - htop
+        state: present
